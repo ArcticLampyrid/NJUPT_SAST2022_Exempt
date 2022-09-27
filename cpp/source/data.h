@@ -6,7 +6,6 @@
 #include <QReadWriteLock>
 #include <QNetworkRequest>
 
-#define LOCAL "./data.json"
 #define SETTINGS "./settings.json"
 
 class ListOrGroup;
@@ -30,10 +29,10 @@ public:
     MainUI* ui;
     QReadWriteLock lock, entryGuard;
 
-    void readLocal();
+    void readLocal(const QString& path);
     void load();
     void update();
-    void save();
+    void save(const QString& path);
 };
 
 QMap<QDateTime, ListOrGroup*> lists_or_groups_from_json(QJsonArray);

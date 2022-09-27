@@ -9,8 +9,8 @@
 
 data global;
 
-void data::readLocal() {
-    QFile file(LOCAL);
+void data::readLocal(const QString& path) {
+    QFile file(path);
     if (!file.exists())
         return;
     if (!file.open(QIODevice::ReadOnly))
@@ -54,7 +54,7 @@ void data::update() {
     delete _today;
 }
 
-void data::save() {
+void data::save(const QString& path) {
     QJsonArray g, l, e;
     for (auto i : groups)
         for (auto i : groups) {
@@ -80,7 +80,7 @@ void data::save() {
         return;
     local.setObject(all);
 
-    QFile file(LOCAL);
+    QFile file(path);
     if (!file.open(QIODevice::WriteOnly))
         throw nullptr;
     file.write(local.toJson());

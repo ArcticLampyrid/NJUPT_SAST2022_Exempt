@@ -4,6 +4,7 @@
 #include <QBoxLayout>
 #include <QDateTime>
 #include <QDialog>
+#include <QPushButton>
 #include <QListWidget>
 
 class List;
@@ -16,16 +17,18 @@ private:
     QBoxLayout *mainLayout, *leftLayout;
     QWidget *searchBar;
     QWidget *groups, *entries, *details;
+    QPushButton *openButton;
 
 public:
     MainUI(QWidget *parent = nullptr);
     ~MainUI();
 
-    void onUpdate(int, QDateTime) {}
+    void onUpdate(int, QDateTime);
 public slots:
     void openList(List*);
     void openEntry(Entry*);
     void addEntry(QDateTime);
+    void openFile();
 };
 
 #endif // MAINUI_H

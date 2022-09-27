@@ -35,6 +35,9 @@ public:
     inline QString getTitle() const {
         return title;
     }
+    inline QDate getStart() const {
+        return start;
+    }
     inline QDate getDue() const {
         return due;
     }
