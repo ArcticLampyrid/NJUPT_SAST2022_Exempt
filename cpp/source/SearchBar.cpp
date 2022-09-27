@@ -52,6 +52,9 @@ void SearchBar::onSearch() {
                 }
             }
         }
+        if (entry->getNote().contains(text)) {
+            return true;
+        }
         return entry->getTitle().contains(text);
     });
     global.ui->openList(nov);
